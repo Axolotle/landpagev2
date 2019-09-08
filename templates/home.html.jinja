@@ -1,0 +1,28 @@
+{% extends 'partials/base.html.jinja' %}
+
+{% block main %}
+<h1>{{ site.title }}</h1>
+<nav>
+    <ul>
+    {%- for item in page.data.menu %}
+        <li><span>{{ item.symbol }}</span><a href="{{ item.url }}">{{ item.name }}</a></li>
+    {%- endfor %}
+    </ul>
+</nav>
+<nav class="selector">
+    <ul>
+    {%- for keyword in page.data.keywords %}
+        <li><a data-keyword="{{ keyword }}">{{ keyword }}</a></li>
+    {%- endfor %}
+    </ul>
+</nav>
+<ul id="projects">
+{%- for project in projects %}
+    <li><a href="{{ project.uri ~ project.lang ~ '/' }}">{{ project.title }}</a></li>
+{%- endfor %}
+</ul>
+{% endblock %}
+
+{% block footer %}
+{{ page.footer }}
+{% endblock %}

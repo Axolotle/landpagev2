@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 ```bash
 # watch scss changes
-scss --watch scss:css
+scss --watch scss:pages/css
 
 # run website generation
 python3 app.py

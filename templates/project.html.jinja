@@ -1,0 +1,6 @@
+{% extends 'partials/base.html.jinja' %}
+
+{% block main %}
+    <a href="{{ site.root ~ page.data.lang }}">Home</a>
+    {{ page.content }}
+{% endblock %}

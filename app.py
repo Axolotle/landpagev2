@@ -21,29 +21,37 @@ def getTemplates():
         for template in templateEnv.list_templates(filter_func=filterTemplates)
     }
 
-def readPage(path):
-    page = {}
-    with open(path, 'r') as f:
+def readPage(root, fn):
+    page = {'data': {}}
+    with open(os.path.join(root, fn), 'r') as f:
         rawContent = f.read().split('---')[1:]
-        if len(rawContent) > 0:
-            page['data'] = yaml.load(rawContent.pop(0))
-            for block in rawContent:
-                [_type, content] = block.split('\n', 1)
-                if content != '':
-                    page['content' if _type is '' else _type] = markdown(content)
+    if len(rawContent) > 0:
+        page['data'] = yaml.load(rawContent.pop(0))
+        for block in rawContent:
+            [_type, content] = block.split('\n', 1)
+            if content != '':
+                page['content' if _type is '' else _type] = markdown(content)
+    page['data']['uri'] = '/' + os.path.dirname(root) + '/'
+    page['data']['lang'] = os.path.basename(root)
     return page
 
 def main():
     templates = getTemplates()
     site = getYaml('site.yaml')
-    for root, dirs, files in os.walk('pages'):
+    projects = {lang: [] for lang in site['langs']}
+    for root, dirs, files in os.walk('landpage'):
         for fn in files:
-            if fn.endswith('.md'):
-                page = readPage(os.path.join(root, fn))
+            if fn.endswith('.md') and fn != 'home.md':
+                page = readPage(root, fn)
                 if page:
                     print('Rendering {}/{}…'.format(root, fn))
                     templates[fn].stream(site=site, page=page).dump(os.path.join(root, 'index.html'))
+                    projects[page['data']['lang']].append(page['data'])
 
+    for lang, list in projects.items():
+        print('Rendering landpage/{}/home.md…'.format(lang))
+        page = readPage('landpage/'+lang, 'home.md')
+        templates['home.md'].stream(site=site, page=page, projects=list).dump('landpage/{}/index.html'.format(lang))
 
 if __name__ == '__main__':
     main()

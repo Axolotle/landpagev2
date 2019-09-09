@@ -1,0 +1,62 @@
+p {
+    margin: 1rem 0;
+}
+
+a {
+    color: blue;
+    &:visited {
+        color: #8400ff;
+    }
+}
+
+strong {
+    font-weight: 500;
+}
+
+em {
+    font-style: italic;
+}
+
+img {
+}
+
+sup {
+}
+
+blockquote {
+    p {
+    }
+    em {
+    }
+}
+
+hr {
+}
+
+h2, h3, h4, h5, h6 {
+}
+
+
+ul {
+    margin: 1rem 0;
+}
+li ul {
+}
+li {
+}
+
+.content {
+    li::before {
+        content: '→';
+    }
+    li li::before {
+        content: '↳';
+    }
+
+    ol > li {
+        counter-increment: step-counter;
+        &::before {
+            content: counter(step-counter);
+        }
+    }
+}

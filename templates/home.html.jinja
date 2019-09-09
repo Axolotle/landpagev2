@@ -1,28 +1,51 @@
 {% extends 'partials/base.html.jinja' %}
 
-{% block main %}
-<h1>{{ site.title }}</h1>
-<nav>
+{% block header %}
+<header>
+<h1 class="inverted">{{ site.title }}</h1>
+<nav class="nav" aria_label="Navigation principale">
     <ul>
     {%- for item in page.data.menu %}
-        <li><span>{{ item.symbol }}</span><a href="{{ item.url }}">{{ item.name }}</a></li>
+        <li><span>{{ item.symbol }}</span><a href="{{ item.url }}"{% if item.symbol == '↗' %} target="_blank"{% endif %}>{{ item.name }}</a></li>
     {%- endfor %}
     </ul>
 </nav>
+</header>
+{% endblock %}
+
+{% block main %}
+<main>
 <nav class="selector">
     <ul>
     {%- for keyword in page.data.keywords %}
-        <li><a data-keyword="{{ keyword }}">{{ keyword }}</a></li>
+        <span><li><a data-keyword="{{ keyword }}">{{ keyword }}</a></li><span class="triangle"><span></span></span></span>
     {%- endfor %}
+        <span class="selected"><li><a data-keyword="test">test</a></li><span class="triangle"><span></span></span></span>
     </ul>
 </nav>
 <ul id="projects">
 {%- for project in projects %}
-    <li><a href="{{ project.uri ~ project.lang ~ '/' }}">{{ project.title }}</a></li>
+    <li>
+    {%- if project.visible %}
+        <a href="{{ project.uri ~ project.lang ~ '/' }}">{{ project.title }}</a>
+    {%- else %}
+        <span>{{ project.title }}</span>
+    {%- endif %}
+        <span>{{ project.date.start }}{% if project.date.end is defined %}{{ '–' ~ project.date.end }}{% endif %}</span>
+        <span>{{ project.license|join(' + ') }}</span>
+    {%- if project.website is defined %}
+        <a {% if not project.website.active %}class="deactivate" {% endif %}href="{{ project.website.url }}">{{ project.website.name }}</a>
+    {%- else %}
+        <span>none</span>
+    {%- endif %}
+    </li>
 {%- endfor %}
 </ul>
+</main>
 {% endblock %}
 
 {% block footer %}
+<footer class="inverted">
 {{ page.footer }}
+</footer>
 {% endblock %}

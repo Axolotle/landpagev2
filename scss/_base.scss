@@ -17,19 +17,44 @@ html, body {
 
 body {
     font-size: 1rem;
+    max-width: 90rem;
+    margin: auto;
 }
 
-// :not(img)::-moz-selection {
-//   color: $text-color;
-//   background-color: #4dffd2;
-// }
-// :not(img)::selection {
-//   color: $text-color;
-//   background-color: #4dffd2;
-// }
-// img::-moz-selection {
-//   background-color: transparent;
-// }
-// img::selection {
-//   background-color: transparent;
-// }
+.inverted {
+    background-color: $main-color;
+    color: $main-neg-color;
+}
+
+header {
+    margin-top: 3rem;
+    h1 {
+        padding: 0 2rem;
+        width: 33%;
+    }
+}
+
+main {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+}
+
+footer {
+    padding: 2rem;
+}
+
+:not(img)::-moz-selection {
+  color: $main-neg-color;
+  background-color: $blue;
+}
+:not(img)::selection {
+  color: $main-neg-color;
+  background-color: $blue;
+}
+img::-moz-selection {
+  background-color: transparent;
+}
+img::selection {
+  background-color: transparent;
+}

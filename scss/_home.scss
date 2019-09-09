@@ -1,0 +1,117 @@
+nav.nav {
+    margin-top: 3rem;
+    li span {
+        background-color: $blue;
+        color: $main-neg-color;
+        padding: 0 4px;
+        margin-right: 0.5rem;
+    }
+}
+
+nav.selector {
+    ul {
+        width: 100%;
+        height: 3rem;
+        display: flex;
+        border-left: 2px solid $main-color;
+        margin-bottom: 0;
+
+        & > span {
+            display: flex;
+
+            &:last-of-type .triangle {
+                border-top: 2px solid transparent;
+            }
+            &:first-of-type li {
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    li {
+        border-top: 2px solid $main-color;
+        display: flex;
+        align-items: center;
+
+        a {
+            padding: 0 1rem;
+            color: $main-color;
+        }
+    }
+
+    span.selected li {
+        background-color: $main-color;
+        &::before, &::after {
+            content: '';
+            margin-top: -1px;
+            height : 0;
+            width : 0;
+        }
+        &::before {
+            margin-left: calc(-3rem + 2px);
+            border-top : calc(3rem - 2px) solid $main-color;
+            border-left : calc(3rem - 2px) solid transparent;
+        }
+        &::after {
+            margin-right: calc(-3rem + 2px);
+            border-right : calc(3rem - 2px) solid transparent;
+            border-bottom : calc(3rem - 2px) solid $main-color;
+        }
+
+        a {
+            color: $main-neg-color;
+        }
+    }
+
+    .triangle {
+        border-top: 2px solid $main-color;
+        margin-left: -1px;
+        width: 3rem;
+        height: 3rem;
+
+        span {
+            position: absolute;
+            height: calc(4rem);
+            border-right: 2px solid $main-color;
+            width: 2px;
+            margin-top: -0.65rem;
+            margin-left: 1.4rem;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+#projects {
+    margin: 0;
+    li {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid $main-color;
+        margin-top: -2px;
+        padding: 0 2rem;
+        & > * {
+            width: 15%;
+        }
+        :nth-child(1) {
+            width: 40%;
+        }
+        :nth-child(4) {
+            width: 30%;
+            text-align: right;
+        }
+    }
+    a {
+        &:visited, &:focus, &:link {
+            color: $blue;
+        }
+        &.deactivate {
+            color: $red;
+            text-decoration: line-through;
+            &:visited, &:focus, &:link {
+                color: $red;
+            }
+        }
+    }
+}

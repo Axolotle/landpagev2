@@ -46,7 +46,8 @@ def main():
                 if page:
                     print('Rendering {}/{}…'.format(root, fn))
                     templates[fn].stream(site=site, page=page).dump(os.path.join(root, 'index.html'))
-                    projects[page['data']['lang']].append(page['data'])
+                    if fn == 'project.md':
+                        projects[page['data']['lang']].append(page['data'])
 
     for lang, list in projects.items():
         print('Rendering landpage/{}/home.md…'.format(lang))

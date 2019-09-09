@@ -18,14 +18,24 @@
 <nav class="selector">
     <ul>
     {%- for keyword in page.data.keywords %}
-        <span><li><a data-keyword="{{ keyword }}">{{ keyword }}</a></li><span class="triangle"><span></span></span></span>
+        <span><li><a data-keyword="{{ keyword.name }}" href="#">{{ keyword.name }}</a></li><span class="triangle"><span></span></span></span>
     {%- endfor %}
-        <span class="selected"><li><a data-keyword="test">test</a></li><span class="triangle"><span></span></span></span>
     </ul>
 </nav>
+<div class="synopsis inverted">
+{%- for keyword in page.data.keywords %}
+    <div class="container hide" data-keyword="{{ keyword.name }}">
+    {%- for text in keyword.text %}
+        <div class="">
+        {{ text|markdown }}
+        </div>
+    {%- endfor %}
+    </div>
+{%- endfor %}
+</div>
 <ul id="projects">
 {%- for project in projects %}
-    <li>
+    <li data-keywords="{{ project.keywords|join(' ') }}">
     {%- if project.visible %}
         <a href="{{ project.uri ~ project.lang ~ '/' }}">{{ project.title }}</a>
     {%- else %}

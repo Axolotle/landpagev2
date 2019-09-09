@@ -3,6 +3,8 @@ $main-neg-color: white;
 $blue: #0000ff;
 $red: #ff0000;
 
+$row-height: 4rem;
+
 :root {
     font-family: 'Fira Code';
     font-size: 1rem;
@@ -17,17 +19,20 @@ html, body {
 
 body {
     font-size: 1rem;
-    max-width: 90rem;
-    margin: auto;
 }
 
 .inverted {
     background-color: $main-color;
     color: $main-neg-color;
 }
+.hide {
+    display: none;
+}
 
 header {
+    margin: auto;
     margin-top: 3rem;
+    max-width: 90rem;
     h1 {
         padding: 0 2rem;
         width: 33%;
@@ -35,9 +40,10 @@ header {
 }
 
 main {
+    margin: auto;
     margin-top: 3rem;
     margin-bottom: 4rem;
-
+    max-width: 90rem;
 }
 
 footer {

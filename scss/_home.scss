@@ -1,5 +1,6 @@
 nav.nav {
     margin-top: 3rem;
+
     li span {
         background-color: $blue;
         color: $main-neg-color;
@@ -11,7 +12,7 @@ nav.nav {
 nav.selector {
     ul {
         width: 100%;
-        height: 3rem;
+        height: $row-height;
         display: flex;
         border-left: 2px solid $main-color;
         margin-bottom: 0;
@@ -22,14 +23,20 @@ nav.selector {
             &:last-of-type .triangle {
                 border-top: 2px solid transparent;
             }
-            &:first-of-type li {
-                padding-left: 1rem;
+            &:first-of-type {
+                li {
+                    padding-left: 1rem;
+                }
+                &.selected li::before {
+                    content: none;
+                }
             }
         }
     }
 
     li {
         border-top: 2px solid $main-color;
+        border-bottom: 2px solid $main-color;
         display: flex;
         align-items: center;
 
@@ -46,16 +53,17 @@ nav.selector {
             margin-top: -1px;
             height : 0;
             width : 0;
+            z-index: -1;
         }
         &::before {
-            margin-left: calc(-3rem + 2px);
-            border-top : calc(3rem - 2px) solid $main-color;
-            border-left : calc(3rem - 2px) solid transparent;
+            margin-left: calc(-#{$row-height} + 2px);
+            border-bottom : calc(#{$row-height} - 2px) solid $main-color;
+            border-left : calc(#{$row-height} - 2px) solid transparent;
         }
         &::after {
-            margin-right: calc(-3rem + 2px);
-            border-right : calc(3rem - 2px) solid transparent;
-            border-bottom : calc(3rem - 2px) solid $main-color;
+            margin-right: calc(-#{$row-height} + 2px);
+            border-right : calc(#{$row-height} - 2px) solid transparent;
+            border-bottom : calc(#{$row-height} - 2px) solid $main-color;
         }
 
         a {
@@ -66,25 +74,44 @@ nav.selector {
     .triangle {
         border-top: 2px solid $main-color;
         margin-left: -1px;
-        width: 3rem;
-        height: 3rem;
+        width: $row-height;
+        height: $row-height;
 
         span {
             position: absolute;
-            height: calc(4rem);
+            height: $row-height * 1.37;
             border-right: 2px solid $main-color;
             width: 2px;
-            margin-top: -0.65rem;
-            margin-left: 1.4rem;
+            margin-top: $row-height * -0.22;
+            margin-left: $row-height * 0.48;
             transform: rotate(-45deg);
+        }
+    }
+}
+
+.synopsis {
+    margin-top: -2px;
+
+    .container {
+        margin-top: -2px;
+        display: flex;
+
+        &.hide {
+            display: none;
+        }
+
+        div {
+            width: 50%;
+            padding: 2rem;
         }
     }
 }
 
 #projects {
     margin: 0;
+
     li {
-        height: 3rem;
+        height: $row-height;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -101,7 +128,11 @@ nav.selector {
             width: 30%;
             text-align: right;
         }
+        &.hide {
+            display: none;
+        }
     }
+
     a {
         &:visited, &:focus, &:link {
             color: $blue;

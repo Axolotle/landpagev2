@@ -1,0 +1,35 @@
+$main-color: black;
+$main-neg-color: white;
+$blue: #0000ff;
+$red: #ff0000;
+
+:root {
+    font-family: 'Fira Code';
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25em;
+    color: $main-color;
+}
+
+html, body {
+    width: 100%;
+}
+
+body {
+    font-size: 1rem;
+}
+
+// :not(img)::-moz-selection {
+//   color: $text-color;
+//   background-color: #4dffd2;
+// }
+// :not(img)::selection {
+//   color: $text-color;
+//   background-color: #4dffd2;
+// }
+// img::-moz-selection {
+//   background-color: transparent;
+// }
+// img::selection {
+//   background-color: transparent;
+// }

@@ -5,6 +5,9 @@ from ruamel.yaml import YAML
 
 yaml=YAML(typ='safe')
 
+def markdownFilter(input):
+    return markdown(input)
+
 def getYaml(path):
     with open(path) as f:
         return yaml.load(f)
@@ -16,6 +19,7 @@ def getTemplates():
 
     templateLoader = jinja2.FileSystemLoader(searchpath='templates/')
     templateEnv = jinja2.Environment(loader=templateLoader)
+    templateEnv.filters['markdown'] = markdownFilter
     return {
         template.split('.', 1)[0] + '.md': templateEnv.get_template(template)
         for template in templateEnv.list_templates(filter_func=filterTemplates)

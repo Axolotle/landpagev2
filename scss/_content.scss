@@ -10,7 +10,7 @@ a {
 }
 
 strong {
-    font-weight: 500;
+    font-weight: 700;
 }
 
 em {
@@ -18,12 +18,14 @@ em {
 }
 
 img {
+    max-width: 100%;
 }
 
 sup {
 }
 
 blockquote {
+    font-style: italic;
     p {
     }
     em {
@@ -45,18 +47,100 @@ li ul {
 li {
 }
 
-.content {
-    li::before {
-        content: '→';
+code {
+    &.nowrap {
+        white-space: nowrap;
     }
-    li li::before {
-        content: '↳';
-    }
+}
 
-    ol > li {
-        counter-increment: step-counter;
-        &::before {
-            content: counter(step-counter);
+dl {
+    margin: 1rem 0;
+    div {
+        display: flex;
+        align-items: center;
+        margin-bottom: .5rem;
+    }
+    dt {
+        &::after {
+            content: '->';
+            color: $blue;
+            margin: 0 0.5rem;
         }
     }
+}
+
+.intercalar {
+    height: $row-height;
+    display: flex;
+
+    span {
+        background-color: $main-color;
+        display: flex;
+        align-items: center;
+        &::after {
+            content: '';
+            height : 0;
+            width : 0;
+            margin-right: -#{$row-height};
+            border-right : $row-height solid transparent;
+            border-bottom : $row-height solid $main-color;
+        }
+    }
+
+    h1 {
+        color: $main-neg-color;
+        padding: 0 2rem;
+        display: inline-block;
+    }
+}
+
+.container {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    .innercontainer:last-of-type {
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 800px) {
+        justify-content: space-between;
+        .innercontainer {
+            width: calc(50% - 1rem);
+        }
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+        .innercontainer:last-of-type {
+            margin-top: 2rem;
+        }
+    }
+
+}
+
+.lined {
+    border: 2px solid $main-color;
+
+    @media (max-width: 800px) {
+        .innercontainer:last-of-type {
+            order: -1;
+        }
+    }
+}
+
+.tldr {
+
+    margin-top: 1rem;
+    :first-child {
+        display: inline-block;
+    }
+    :nth-child(2) {
+        display: inline;
+    }
+}
+
+.box {
+    border: 2px solid $main-color;
+    margin: 2rem 0;
+    width: 100%;
+    padding: 0 1rem;
 }

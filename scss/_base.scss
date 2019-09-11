@@ -24,6 +24,14 @@ body {
 .inverted {
     background-color: $main-color;
     color: $main-neg-color;
+    a {
+        background-color: $blue;
+        color: $main-neg-color;
+
+        &:visited {
+            color: $main-neg-color;
+        }
+    }
 }
 .hide {
     display: none;
@@ -40,10 +48,23 @@ header {
 }
 
 main {
-    margin: auto;
-    margin-top: 3rem;
+
+    margin: 3rem 4rem 4rem 4rem;
     margin-bottom: 4rem;
-    max-width: 90rem;
+    max-width: 1300px;
+    // @media (min-width: 750px) {
+    //     margin-top: 3rem 4rem 4rem 4rem;
+    // }
+    @media (min-width: 1450px) {
+        margin: 3rem auto 4rem auto;
+    }
+
+    @media (max-width: 750px) {
+        margin: 0 2rem;
+    }
+    @media (max-width: 400px) {
+        margin: 0 0rem;
+    }
 }
 
 footer {

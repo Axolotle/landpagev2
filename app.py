@@ -26,14 +26,16 @@ def getTemplates():
     }
 
 def readPage(root, fn):
-    page = {'data': {}}
+    page = {'data': {}, 'boxes': []}
     with open(os.path.join(root, fn), 'r') as f:
         rawContent = f.read().split('---')[1:]
     if len(rawContent) > 0:
         page['data'] = yaml.load(rawContent.pop(0))
         for block in rawContent:
             [_type, content] = block.split('\n', 1)
-            if content != '':
+            if _type == 'box':
+                page['boxes'].append(markdown(content))
+            elif content != '':
                 page['content' if _type is '' else _type] = markdown(content)
     page['data']['uri'] = '/' + os.path.dirname(root) + '/'
     page['data']['lang'] = os.path.basename(root)

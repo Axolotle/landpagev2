@@ -19,9 +19,8 @@ nav.selector {
 
         & > span {
             display: flex;
-
-            &:last-of-type .triangle {
-                border-top: 2px solid transparent;
+            &:not(:last-of-type) .triangle {
+                border-top: 2px solid $main-color;
             }
             &:first-of-type {
                 li {
@@ -72,10 +71,10 @@ nav.selector {
     }
 
     .triangle {
-        border-top: 2px solid $main-color;
         margin-left: -1px;
         width: $row-height;
         height: $row-height;
+        border-top: 2px solid transparent;
 
         span {
             position: absolute;

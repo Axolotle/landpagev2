@@ -5,7 +5,7 @@ p {
 a {
     color: blue;
     &:visited {
-        color: #8400ff;
+        color: $purple;
     }
 }
 
@@ -17,8 +17,9 @@ em {
     font-style: italic;
 }
 
-img {
+img, svg {
     max-width: 100%;
+    margin: 1rem 0;
 }
 
 sup {
@@ -53,7 +54,7 @@ code {
     }
 }
 
-dl {
+.desc dl {
     margin: 1rem 0;
     div {
         display: flex;
@@ -69,11 +70,70 @@ dl {
     }
 }
 
+.tree {
+    & > dl {
+        margin-left: 1rem;
+    }
+    dl {
+        p {
+            margin: 0;
+        }
+
+        dt {
+            background-color: $main-color;
+            color: $main-neg-color;
+            padding: 0 1rem;
+            display: inline-block;
+            margin-left: -1rem;
+            margin-top: 1.5rem;
+
+            // &.hasChildren {
+            //     & span::after {
+            //         content: ' = [';
+            //     }
+            //     & + dd::after {
+            //         content: ']';
+            //         background-color: $main-color;
+            //         color: $main-neg-color;
+            //         padding: 0 1rem;
+            //         display: inline-block;
+            //         margin-top: 1.5rem;
+            //         margin-left: -1rem;
+            //     }
+            // }
+
+            &::after {
+                position: relative;
+                left: 1rem;
+                display: inline-block;
+                width: 1.25rem;
+                text-align: center;
+            }
+            &.done::after {
+                content: '✓';
+                background-color: $blue;
+            }
+            &.progress::after{
+                content: '~';
+                background-color: $purple;
+            }
+            &.none::after {
+                content: '×';
+                background-color: $red;
+            }
+
+        }
+        dl {
+            margin-left: 1rem;
+        }
+    }
+}
+
 .intercalar {
     height: $row-height;
     display: flex;
 
-    span {
+    div {
         background-color: $main-color;
         display: flex;
         align-items: center;
@@ -89,14 +149,14 @@ dl {
 
     h1 {
         color: $main-neg-color;
-        padding: 0 2rem;
+        padding: 0 3rem;
         display: inline-block;
     }
 }
 
 .container {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 3rem 3rem;
     display: flex;
     .innercontainer:last-of-type {
         margin-bottom: 1rem;
@@ -105,7 +165,7 @@ dl {
     @media (min-width: 800px) {
         justify-content: space-between;
         .innercontainer {
-            width: calc(50% - 1rem);
+            width: calc(50% - 1.5rem);
         }
     }
     @media (max-width: 800px) {

@@ -9,6 +9,11 @@
         <li><span>{{ item.symbol }}</span><a href="{{ item.url }}"{% if item.symbol == '↗' %} target="_blank"{% endif %}>{{ item.name }}</a></li>
     {%- endfor %}
     </ul>
+    <ul aria_label="Selection de la langue">
+    {%- for lang in site.langs %}
+        <a href="{{ site.root ~ lang }}">{{ lang }}</a>
+    {%- endfor %}
+    </ul>
 </nav>
 </header>
 {% endblock %}

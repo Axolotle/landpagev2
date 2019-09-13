@@ -1,17 +1,28 @@
 {% extends 'partials/base.html.jinja' %}
-{% from 'partials/macros.html.jinja' import comma_list %}
+{% from 'partials/macros.html.jinja' import comma_list, tree %}
 {% set data = page.data %}
 
 
 {% block header %}
-    <a href="{{ site.root ~ page.data.lang }}">/landpage/</a>
+<header>
+    <nav class="nav" aria_label="Navigation principale">
+        <ul>
+            <a href="{{ site.root ~ page.data.lang }}" aria-label="Retour"><span>←</span>../</a>
+        </ul>
+        <ul>
+        {%- for lang in site.langs %}
+            <a href="{{ page.data.uri ~ lang }}">{{ lang }}</a>
+        {%- endfor %}
+        </ul>
+    </nav>
+</header>
 {% endblock %}
 
 {% block main %}
 <main>
-    <div class="intercalar"><span><h1>{{ data.title }}</h1></span></div>
+    <div class="intercalar"><div><h1>{{ data.title }}</h1></div></div>
     <section class="container inverted">
-        <div class="innercontainer left">
+        <div class="innercontainer desc">
             <dl>
             {% if data.collaboration is defined %}
                 <div>
@@ -46,8 +57,8 @@
             </dl>
         </div>
         <div class="innercontainer tldr">
-                <strong>TLDR: </strong>
-                {{ page.tldr }}
+            <strong>TLDR: </strong>
+            {{ page.tldr }}
         </div>
     </section>
     <section class="container lined">
@@ -55,18 +66,23 @@
             {{ page.content }}
         </div>
         <div class="innercontainer">
-        {% if page.note is defined %}
+        {%- if page.note is defined %}
             <div class="box inverted">
                 {{ page.note }}
             </div>
-        {% endif %}
-        {% if page.boxes|length > 0 %}
+        {%- endif %}
+        {%- if page.data.tree is defined %}
+            <div class="tree">
+            {{- tree(page.data.tree)|indent(12) }}
+            </div>
+        {%- endif %}
+        {%- if page.boxes|length > 0 %}
         {%- for box in page.boxes %}
             <div class="box">
                 {{ box }}
             </div>
         {%- endfor %}
-        {% endif %}
+        {%- endif %}
         </div>
     </section>
 

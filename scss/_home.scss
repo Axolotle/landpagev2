@@ -1,7 +1,9 @@
 nav.nav {
     margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
 
-    li span {
+    span {
         background-color: $blue;
         color: $main-neg-color;
         padding: 0 4px;

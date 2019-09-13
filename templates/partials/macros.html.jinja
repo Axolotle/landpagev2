@@ -1,3 +1,19 @@
 {% macro comma_list(elems) %}
 {% for elem in elems %}{% if elem.url is defined %}<a href="{{ elem.url }}">{{ elem.name }}</a>{% else %}{{ elem.name }}{% endif %}{% if loop.revindex0 == 1 %} & {% elif not loop.last %}, {% endif %}{% endfor %}
 {% endmacro %}
+
+{% macro tree(children, ind) %}
+<dl>
+{%- for child in children %}
+    <dt class="{{ child.status if child.status is defined else '' }}{% if child.children is defined %} hasChildren{% endif %}">{{ child.name }}<span></span></dt>
+    <dd>
+        {%- if child.text is defined %}
+        {{ child.text|markdown }}
+        {%- endif %}
+        {%- if child.children is defined %}
+        {{- tree(child.children)|indent(8) }}
+        {%- endif %}
+    </dd>
+{%- endfor %}
+</dl>
+{% endmacro %}

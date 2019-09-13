@@ -2,6 +2,7 @@ $main-color: black;
 $main-neg-color: white;
 $blue: #0000ff;
 $red: #ff0000;
+$purple: #8400ff;
 
 $row-height: 4rem;
 
@@ -13,12 +14,25 @@ $row-height: 4rem;
     color: $main-color;
 }
 
-html, body {
+html {
     width: 100%;
 }
 
 body {
     font-size: 1rem;
+    margin: 3rem 4rem 0 4rem;
+    max-width: 1300px;
+
+    @media (min-width: 1450px) {
+        margin: 3rem auto 0 auto;
+    }
+
+    @media (max-width: 750px) {
+        margin: 0 2rem;
+    }
+    @media (max-width: 400px) {
+        margin: 0 0rem;
+    }
 }
 
 .inverted {
@@ -39,32 +53,16 @@ body {
 
 header {
     margin: auto;
-    margin-top: 3rem;
-    max-width: 90rem;
+    margin: 3rem 0;
     h1 {
         padding: 0 2rem;
-        width: 33%;
+        max-width: 300px;
     }
 }
 
 main {
-
-    margin: 3rem 4rem 4rem 4rem;
     margin-bottom: 4rem;
     max-width: 1300px;
-    // @media (min-width: 750px) {
-    //     margin-top: 3rem 4rem 4rem 4rem;
-    // }
-    @media (min-width: 1450px) {
-        margin: 3rem auto 4rem auto;
-    }
-
-    @media (max-width: 750px) {
-        margin: 0 2rem;
-    }
-    @media (max-width: 400px) {
-        margin: 0 0rem;
-    }
 }
 
 footer {

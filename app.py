@@ -1,12 +1,14 @@
 import os
-import jinja2
+import argparse
 import re
+
+import jinja2
 from markdown import markdown as mdRenderer
 from ruamel.yaml import YAML
 
 
 yaml = YAML(typ='safe')
-
+yaml.default_flow_style = False
 
 def markdown(text):
     p = re.compile('(!\[[^]]*]\()')
@@ -15,6 +17,10 @@ def markdown(text):
 def getYaml(path):
     with open(path) as f:
         return yaml.load(f)
+
+def dumpYaml(path, data):
+    with open(path, 'w') as f:
+        yaml.dump(data, f)
 
 def getTemplates():
     def filterTemplates(fn):
@@ -29,6 +35,21 @@ def getTemplates():
         template.split('.', 1)[0] : templateEnv.get_template(template)
         for template in templateEnv.list_templates(filter_func=filterTemplates)
     }
+
+def updateProjects(site, pages):
+    for p in pages:
+        if p not in site['order']:
+            site['order'].insert(0, p)
+    dumpYaml('site.yaml', site)
+    return site
+
+def reorder(projects, order):
+    neworder = []
+    for elem in order:
+        for p in projects:
+            if p['slug'] == elem:
+                neworder.append(p)
+    return neworder
 
 def readPage(root, fn):
     page = {'data': {}, 'boxes': []}
@@ -61,6 +82,7 @@ def getPages(config):
                     page['data'] = {**common, **data}
                 [page['data']['template'], page['data']['lang'], _] = file.split('.')
                 page['data']['uri'] = root + '/'
+                page['data']['slug'] = os.path.basename(root)
                 if page['data']['template'] == 'home':
                     pages[page['data']['lang']]['home'] = page
                 else:
@@ -71,11 +93,12 @@ def getPages(config):
         common = None
     return pages
 
-def generate():
+def generate(onlyHome, slug):
     templates = getTemplates()
     trad = getYaml('languages.yaml')
     site = getYaml('site.yaml')
     pages = getPages(site)
+    site = updateProjects(site, [p['data']['slug'] for p in pages['fr']['pages'] if p['data']['template'] == 'project'])
 
     for lang, content in pages.items():
         site['footer'] = content['home']['footer']
@@ -85,6 +108,8 @@ def generate():
             data = page['data']
             if data['template'] == 'project':
                 projects.append(data)
+            if not data['visible'] or onlyHome or (slug is not None and slug != data['slug']):
+                continue
             print('Rendering {}…'.format(os.path.join(data['uri'], lang)))
             templates[data['template']].stream(
                 site=site,
@@ -96,10 +121,14 @@ def generate():
         templates['home'].stream(
             site=site,
             page=content['home'],
-            projects=projects,
+            projects=reorder(projects, site['order']),
             trad=trad[lang],
         ).dump('{}{}/index.html'.format(content['home']['data']['uri'], lang))
 
 
 if __name__ == '__main__':
-    generate()
+    parser = argparse.ArgumentParser(prog='landpagev2')
+    parser.add_argument('--home', action='store_true')
+    parser.add_argument('--slug', help='slug of project')
+    parser = parser.parse_args()
+    generate(parser.home, parser.slug)

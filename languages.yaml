@@ -1,0 +1,14 @@
+fr:
+  keywords:
+    research: recherche
+    commissioned: commande
+    tools: outils
+  with: avec
+  license: licence
+en:
+  keywords:
+    research: research
+    commissioned: commissioned
+    tools: tools
+  with: with
+  license: license

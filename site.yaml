@@ -1,12 +1,14 @@
-title: Nicolas Chesnais
-langs:
-    - fr
-    - en
-root: /landpage/
-pages: landpage
 forbiddenFolders:
-  - medias
-  - empty
+- medias
+- empty
+langs:
+- fr
+- en
 order:
-  - ''
-  - ''
+- planetaryformats
+- sisifo
+- lnsr
+- igtv
+pages: landpage
+root: /landpage/
+title: Nicolas Chesnais

@@ -3,5 +3,10 @@ langs:
     - fr
     - en
 root: /landpage/
-description: slkjdflksjdf
-keywords: lkshdjflks,ns, dlkjfl kjsd,f smldlkfm ksdf
+pages: landpage
+forbiddenFolders:
+  - medias
+  - empty
+order:
+  - ''
+  - ''

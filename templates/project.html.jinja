@@ -11,7 +11,7 @@
         </ul>
         <ul>
         {%- for lang in site.langs %}
-            <a href="{{ page.data.uri ~ lang }}">{{ lang }}</a>
+            <a href="{{ '/' ~ page.data.uri ~ lang }}">{{ lang }}</a>
         {%- endfor %}
         </ul>
     </nav>
@@ -26,7 +26,7 @@
             <dl>
             {% if data.collaboration is defined %}
                 <div>
-                    <dt>avec</dt>
+                    <dt>{{ trad.with }}</dt>
                     <dd>{{ comma_list(data.collaboration) }}</dd>
                 </div>
             {% endif %}
@@ -38,7 +38,7 @@
             {% endif %}
             {% if data.license is defined %}
                 <div>
-                    <dt>licence</dt>
+                    <dt>{{ trad.license }}</dt>
                     <dd>{{ data.license|join(' + ') }}</dd>
                 </div>
             {% endif %}

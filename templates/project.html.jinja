@@ -7,11 +7,11 @@
 <header>
     <nav class="nav" aria_label="Navigation principale">
         <ul>
-            <a href="{{ site.root ~ page.data.lang }}" aria-label="Retour"><span>←</span>../</a>
+            <li><a href="{{ site.root ~ page.data.lang }}" aria-label="Retour"><span>←</span>../</a></li>
         </ul>
         <ul>
         {%- for lang in site.langs %}
-            <a href="{{ '/' ~ page.data.uri ~ lang }}">{{ lang }}</a>
+            <li><a href="{{ '/' ~ page.data.uri ~ lang }}">{{ lang }}</a></li>
         {%- endfor %}
         </ul>
     </nav>
@@ -49,6 +49,9 @@
                 </div>
             {% endif %}
             {% if data.sources is defined %}
+                {%- for item in sequence %}
+
+                {%- endfor %}
                 <div>
                     <dt>sources</dt>
                     <dd><a href="{{ data.sources.url }}" target="_blank">{{ data.sources.name }}</a></dd>

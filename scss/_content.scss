@@ -18,11 +18,26 @@ em {
 }
 
 img, svg {
-    max-width: 100%;
+    width: 100%;
     margin: 1rem 0;
+    & + em {
+        display: block;
+        text-align: center;
+        margin-bottom: 2rem;
+        &::before {
+            content: '[';
+        }
+        &::after {
+            content: ']';
+        }
+    }
 }
 
 sup {
+    font-size: 0.7em;
+    position: relative;
+    top: -0.5em;
+    padding-left: 0.2em;
 }
 
 blockquote {
@@ -49,8 +64,35 @@ li {
 }
 
 code {
+    background-color: $main-color;
+    color: $main-neg-color;
+
     &.nowrap {
         white-space: nowrap;
+        background-color: $main-neg-color;
+        color: $main-color;
+
+        &.inverted {
+            background-color: $main-color;
+            color: $main-neg-color;
+        }
+    }
+}
+
+.innercontainer ul {
+    margin-left: 2rem;
+
+    ul {
+        margin: 0 0 0 1rem;
+    }
+    li {
+        margin-top: .3rem;
+        &::before {
+            content: '-> ';
+            width: 2rem;
+            display: inline-block;
+            margin-left: -2rem;
+        }
     }
 }
 
@@ -86,21 +128,6 @@ code {
             display: inline-block;
             margin-left: -1rem;
             margin-top: 1.5rem;
-
-            // &.hasChildren {
-            //     & span::after {
-            //         content: ' = [';
-            //     }
-            //     & + dd::after {
-            //         content: ']';
-            //         background-color: $main-color;
-            //         color: $main-neg-color;
-            //         padding: 0 1rem;
-            //         display: inline-block;
-            //         margin-top: 1.5rem;
-            //         margin-left: -1rem;
-            //     }
-            // }
 
             &::after {
                 position: relative;

@@ -43,6 +43,7 @@ body {
         color: $main-neg-color;
 
         &:visited {
+            background-color: $purple;
             color: $main-neg-color;
         }
     }

@@ -2,13 +2,13 @@ fr:
   keywords:
     research: recherche
     commissioned: commande
-    tools: outils
+    tool: outils
   with: avec
   license: licence
 en:
   keywords:
     research: research
     commissioned: commissioned
-    tools: tools
+    tool: tool
   with: with
   license: license

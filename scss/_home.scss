@@ -134,7 +134,10 @@ nav.selector {
     }
 
     a {
-        &:visited, &:focus, &:link {
+        &:focus, &:link {
+            color: $blue;
+        }
+        &:visited {
             color: $blue;
         }
         &.deactivate {

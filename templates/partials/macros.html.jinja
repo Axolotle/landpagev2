@@ -5,7 +5,7 @@
 {% macro tree(children, ind) %}
 <dl>
 {%- for child in children %}
-    <dt class="{{ child.status if child.status is defined else '' }}{% if child.children is defined %} hasChildren{% endif %}">{{ child.name }}<span></span></dt>
+    <dt class="{{ child.status if child.status is defined else '' }}{% if child.children is defined %} {% endif %}">{{ child.name }}<span></span></dt>
     <dd>
         {%- if child.text is defined %}
         {{ child.text|markdown }}

@@ -12,7 +12,7 @@ yaml.default_flow_style = False
 
 def markdown(text):
     p = re.compile('(!\[[^]]*]\()')
-    return mdRenderer(p.sub(r'\1../medias/', text))
+    return mdRenderer(p.sub(r'\1../medias/', text), extensions=["markdown.extensions.extra"])
 
 def getYaml(path):
     with open(path) as f:

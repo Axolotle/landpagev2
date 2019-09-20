@@ -5,6 +5,7 @@ fr:
     tool: outils
   with: avec
   license: licence
+  softwares: logiciels
 en:
   keywords:
     research: research
@@ -12,3 +13,4 @@ en:
     tool: tool
   with: with
   license: license
+  softwares: softwares

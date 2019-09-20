@@ -14,6 +14,9 @@ def markdown(text):
     p = re.compile('(!\[[^]]*]\()')
     return mdRenderer(p.sub(r'\1../medias/', text), extensions=["markdown.extensions.extra"])
 
+def markdownrp(text):
+    return markdown(text)[3:-4]
+
 def getYaml(path):
     with open(path) as f:
         return yaml.load(f)
@@ -31,6 +34,7 @@ def getTemplates():
     templateEnv = jinja2.Environment(loader=templateLoader, extensions=['jinja2.ext.i18n'])
     # add markdown filter
     templateEnv.filters['markdown'] = markdown
+    templateEnv.filters['markdownrp'] = markdownrp
     return {
         template.split('.', 1)[0] : templateEnv.get_template(template)
         for template in templateEnv.list_templates(filter_func=filterTemplates)

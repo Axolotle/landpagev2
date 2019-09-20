@@ -51,9 +51,17 @@ blockquote {
 hr {
 }
 
-h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
 }
-
+h2 {
+    border-bottom: 2px dashed $main-color;
+    padding-bottom: 0.5rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+.inverted h2 {
+    border-bottom: 2px dashed $main-neg-color;
+}
 
 ul {
     margin: 1rem 0;
@@ -183,35 +191,63 @@ code {
 
 .container {
     width: 100%;
-    padding: 3rem 3rem;
+    padding: 3rem;
     display: flex;
-    .innercontainer:last-of-type {
-        margin-bottom: 1rem;
-    }
 
     @media (min-width: 800px) {
         justify-content: space-between;
+        flex-flow: row wrap;
         .innercontainer {
-            width: calc(50% - 1.5rem);
+            width: calc(50% - 3rem);
+            
+            &.gallery {
+                width: 100%;
+            }
         }
     }
     @media (max-width: 800px) {
         flex-direction: column;
-        .innercontainer:last-of-type {
-            margin-top: 2rem;
+        .gallery, .extra, .details {
+            margin-top: 6rem;
+            padding-top: 0;
         }
     }
 
 }
 
-.lined {
-    border: 2px solid $main-color;
+.extras, .gallery {
+    margin-top: 3rem;
+}
 
-    @media (max-width: 800px) {
-        .innercontainer:last-of-type {
-            order: -1;
+.gallery {
+    figure {
+        margin: auto;
+        max-width: 800px;
+        margin-bottom: 3rem;
+    }
+    
+    figcaption {
+        text-align: center;
+        
+        &::before {
+            content: '[';
+        }
+        &::after {
+            content: ']';
         }
     }
+    
+    // .buttons {
+    //     display: none;
+    //     justify-content: space-between;
+    //     button[name='next'] {
+    //         margin-left: auto;
+    //     }
+    // }
+}
+
+.lined {
+    border: 2px solid $main-color;
 }
 
 .tldr {

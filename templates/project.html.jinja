@@ -20,55 +20,65 @@
 
 {% block main %}
 <main>
-    <div class="intercalar"><div><h1>{{ data.title }}</h1></div></div>
-    <section class="container inverted">
-        <div class="innercontainer desc">
-            <dl>
-            {% if data.collaboration is defined %}
-                <div>
-                    <dt>{{ trad.with }}</dt>
-                    <dd>{{ comma_list(data.collaboration) }}</dd>
-                </div>
-            {% endif %}
-            {% if data.date is defined %}
-                <div>
-                    <dt>date</dt>
-                    <dd>{{ data.date.start }}{% if data.date.end is defined %}{{ '–' ~ data.date.end }}{% endif %}</dd>
-                </div>
-            {% endif %}
-            {% if data.license is defined %}
-                <div>
-                    <dt>{{ trad.license }}</dt>
-                    <dd>{{ data.license|join(' + ') }}</dd>
-                </div>
-            {% endif %}
-            {% if data.website is defined %}
-                <div>
-                    <dt>site</dt>
-                    <dd><a {% if not data.website.active %}class="deactivate" {% endif %}href="{{ data.website.url }}">{{ data.website.name }}</a></dd>
-                </div>
-            {% endif %}
-            {% if data.sources is defined %}
-                {%- for item in sequence %}
+    <section>
+        <div class="intercalar"><div><h1>{{ data.title }}</h1></div></div>
+        <div class="container inverted">
+            <div class="innercontainer desc">
+                <dl>
+                {% if data.collaboration is defined %}
+                    <div>
+                        <dt>{{ trad.with }}</dt>
+                        <dd>{{ comma_list(data.collaboration) }}</dd>
+                    </div>
+                {% endif %}
+                {% if data.date is defined %}
+                    <div>
+                        <dt>date</dt>
+                        <dd>{{ data.date.start }}{% if data.date.end is defined %}{{ '–' ~ data.date.end }}{% endif %}</dd>
+                    </div>
+                {% endif %}
+                {% if data.license is defined %}
+                    <div>
+                        <dt>{{ trad.license }}</dt>
+                        <dd>{{ data.license|join(' + ') }}</dd>
+                    </div>
+                {% endif %}
+                {% if data.website is defined %}
+                    <div>
+                        <dt>site</dt>
+                        <dd><a {% if not data.website.active %}class="deactivate" {% endif %}href="{{ data.website.url }}">{{ data.website.name }}</a></dd>
+                    </div>
+                {% endif %}
+                {% if data.sources is defined %}
+                    {%- for item in sequence %}
 
-                {%- endfor %}
-                <div>
-                    <dt>sources</dt>
-                    <dd><a href="{{ data.sources.url }}" target="_blank">{{ data.sources.name }}</a></dd>
-                </div>
-            {% endif %}
-            </dl>
-        </div>
-        <div class="innercontainer tldr">
-            <strong>TLDR: </strong>
-            {{ page.tldr }}
+                    {%- endfor %}
+                    <div>
+                        <dt>sources</dt>
+                        <dd><a href="{{ data.sources.url }}" target="_blank">{{ data.sources.name }}</a></dd>
+                    </div>
+                {% endif %}
+                {% if data.softwares is defined %}
+                    <div>
+                        <dt>{{ trad.softwares }}</dt>
+                        <dd>{{ data.softwares }}</dd>
+                    </div>
+                {% endif %}
+                </dl>
+            </div>
+            <div class="innercontainer tldr">
+                <strong>TLDR: </strong>
+                {{ page.tldr }}
+            </div>
         </div>
     </section>
-    <section class="container lined">
-        <div class="innercontainer">
+    <div class="container lined">
+        <section class="innercontainer">
+            <h2>Infos</h2>
             {{ page.content }}
-        </div>
-        <div class="innercontainer">
+        </section>
+        <div class="innercontainer details">
+            <h2>Détails</h2>
         {%- if page.note is defined %}
             <div class="box inverted">
                 {{ page.note }}
@@ -80,14 +90,44 @@
             </div>
         {%- endif %}
         {%- if page.boxes|length > 0 %}
-        {%- for box in page.boxes %}
-            <div class="box">
-                {{ box }}
-            </div>
-        {%- endfor %}
+            <section class="extras">
+                <h2>Extras</h2>
+            {%- for box in page.boxes %}
+                <div class="box">
+                    {{ box }}
+                </div>
+            {%- endfor %}    
+            </section>
         {%- endif %}
         </div>
-    </section>
+        {% if page.data.gallery is defined %}
+        <section class="innercontainer gallery">
+            <h2>Gallerie</h2>
+            <!-- <div class="buttons">
+                <button type="button" name="previous" class="hide"><-</button>
+                <button type="button" name="next">-></button>
+            </div> -->
+            <div>
+            {% for media in page.data.gallery %}
+                <figure {% if media.caption %}aria-labelledby="{{ media.uri }}-caption"{% endif %}>
+                {% if media.multiple is defined %}
+                {% for med in media.multiple %}
+                    <img src="{{ '../medias/' ~ med.uri }}" {% if media.alt %}alt="{{ med.alt }}"{% endif %}>
+                {% endfor %}
+                {% else %}
+                    <img src="{{ '../medias/' ~ media.uri }}" {% if media.alt %}alt="{{ media.alt }}"{% endif %}>
+                {% endif %}
+                {% if media.caption %}
+                    <figcaption id="{{ media.uri }}-caption">
+                        {{ media.caption|markdownrp }}
+                    </figcaption>
+                {% endif %}
+                </figure>
+            {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </div>
 
 </main>
 {% endblock %}

@@ -22,17 +22,12 @@ document.querySelectorAll('.selector a').forEach(selector => {
     }
 });
 
-document.querySelectorAll('.gallery button').forEach((elem, index, elems) => {
-    elem.onclick = function () {
-        var actual = document.querySelector('.gallery figure:not(.hide)');
-        var next = this.name == 'previous' 
-            ? actual.previousElementSibling
-            : actual.nextElementSibling;
-        actual.classList.add('hide');
-        next.classList.remove('hide');
-        if (next.nextElementSibling == null) elems[1].classList.add('hide');
-        else elems[1].classList.remove('hide');
-        if (next.previousElementSibling == null) elems[0].classList.add('hide');
-        else elems[0].classList.remove('hide');            
+document.querySelectorAll('.gallery img, .gallery svg').forEach(elem => {
+    console.log(elem);
+    elem.onclick = () => {
+        if (elem.parentElement.nodeName == 'FIGURE') {
+            elem.parentElement.classList.toggle('plus');
+        }
+        elem.classList.toggle('plus');
     }
-})
+});

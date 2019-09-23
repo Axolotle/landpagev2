@@ -49,6 +49,18 @@
                         <dd><a {% if not data.website.active %}class="deactivate" {% endif %}href="{{ data.website.url }}">{{ data.website.name }}</a></dd>
                     </div>
                 {% endif %}
+                {% if data.softwares is defined %}
+                <div>
+                    <dt>{{ trad.softwares }}</dt>
+                    <dd>{{ data.softwares|markdownrp }}</dd>
+                </div>
+                {% endif %}
+                {% if data.font %}
+                <div>
+                    <dt>{{ trad.characters }}</dt>
+                    <dd>{{ data.font|markdownrp }}</dd>
+                </div>
+                {% endif %}
                 {% if data.sources is defined %}
                     {%- for item in sequence %}
 
@@ -56,12 +68,6 @@
                     <div>
                         <dt>sources</dt>
                         <dd><a href="{{ data.sources.url }}" target="_blank">{{ data.sources.name }}</a></dd>
-                    </div>
-                {% endif %}
-                {% if data.softwares is defined %}
-                    <div>
-                        <dt>{{ trad.softwares }}</dt>
-                        <dd>{{ data.softwares }}</dd>
                     </div>
                 {% endif %}
                 </dl>
@@ -79,6 +85,17 @@
         </section>
         <div class="innercontainer details">
             <h2>Détails</h2>
+        {% if data.colors is defined %}
+            <div class="colors">
+            {% if data.colors == 'nb' %}
+                <span class="white"></span><span class="black"></span>
+            {% else %}
+            {%- for color in data.colors -%}
+                <span style="background-color:#{{ color }}"></span>
+            {%- endfor %}
+            {% endif %}
+            </div>
+        {%- endif %}
         {%- if page.note is defined %}
             <div class="box inverted">
                 {{ page.note }}
@@ -96,26 +113,22 @@
                 <div class="box">
                     {{ box }}
                 </div>
-            {%- endfor %}    
+            {%- endfor %}
             </section>
         {%- endif %}
         </div>
         {% if page.data.gallery is defined %}
         <section class="innercontainer gallery">
             <h2>Gallerie</h2>
-            <!-- <div class="buttons">
-                <button type="button" name="previous" class="hide"><-</button>
-                <button type="button" name="next">-></button>
-            </div> -->
             <div>
             {% for media in page.data.gallery %}
-                <figure {% if media.caption %}aria-labelledby="{{ media.uri }}-caption"{% endif %}>
+                <figure {% if media.caption %}aria-labelledby="{{ media.uri }}-caption"{% endif %}{% if media.multiple is defined %} class="multiple"{% endif %}>
                 {% if media.multiple is defined %}
                 {% for med in media.multiple %}
-                    <img src="{{ '../medias/' ~ med.uri }}" {% if media.alt %}alt="{{ med.alt }}"{% endif %}>
+                    <img src="{{ '../medias/' ~ med.uri }}" {% if media.alt %}alt="{{ med.alt }}"{% endif %}{% if med.crisp %}class="crisp"{% endif %}>
                 {% endfor %}
                 {% else %}
-                    <img src="{{ '../medias/' ~ media.uri }}" {% if media.alt %}alt="{{ media.alt }}"{% endif %}>
+                    <img src="{{ '../medias/' ~ media.uri }}" {% if media.alt %}alt="{{ media.alt }}"{% endif %}{% if media.crisp %}class="crisp"{% endif %}>
                 {% endif %}
                 {% if media.caption %}
                     <figcaption id="{{ media.uri }}-caption">

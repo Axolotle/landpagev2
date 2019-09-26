@@ -62,12 +62,10 @@
                 </div>
                 {% endif %}
                 {% if data.sources is defined %}
-                    {%- for item in sequence %}
+                <div>
+                    <dt>sources</dt>
+                    <dd>{{ comma_list(data.sources) }}</dd>
 
-                    {%- endfor %}
-                    <div>
-                        <dt>sources</dt>
-                        <dd><a href="{{ data.sources.url }}" target="_blank">{{ data.sources.name }}</a></dd>
                     </div>
                 {% endif %}
                 </dl>
@@ -122,16 +120,16 @@
             <h2>Gallerie</h2>
             <div>
             {% for media in page.data.gallery %}
-                <figure {% if media.caption %}aria-labelledby="{{ media.uri }}-caption"{% endif %}{% if media.multiple is defined %} class="multiple"{% endif %}>
+                <figure class="{% if media.multiple is defined %}multiple {% endif %}{% if media.class %}{{ media.class }}{% endif %}">
                 {% if media.multiple is defined %}
                 {% for med in media.multiple %}
-                    <img src="{{ '../medias/' ~ med.uri }}" {% if media.alt %}alt="{{ med.alt }}"{% endif %}{% if med.crisp %}class="crisp"{% endif %}>
+                    <img src="{{ '../medias/' ~ med.uri }}" {% if media.alt %}alt="{{ med.alt }}"{% endif %}class="{% if med.crisp %}crisp {% endif %}{% if med.class %}{{ med.class }}{% endif %}">
                 {% endfor %}
                 {% else %}
                     <img src="{{ '../medias/' ~ media.uri }}" {% if media.alt %}alt="{{ media.alt }}"{% endif %}{% if media.crisp %}class="crisp"{% endif %}>
                 {% endif %}
                 {% if media.caption %}
-                    <figcaption id="{{ media.uri }}-caption">
+                    <figcaption>
                         {{ media.caption|markdownrp }}
                     </figcaption>
                 {% endif %}

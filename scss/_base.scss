@@ -31,12 +31,12 @@ body {
     background-color: $main-color;
     color: $main-neg-color;
     a {
-        background-color: $blue;
         color: $main-neg-color;
+        // color: $main-neg-color;
 
         &:visited {
-            background-color: $purple;
-            color: $main-neg-color;
+            color: $purple;
+            // color: $main-neg-color;
         }
     }
     code {

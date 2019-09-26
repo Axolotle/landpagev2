@@ -47,7 +47,7 @@
         <span>{{ project.title }}</span>
     {%- endif %}
         <span>{{ project.date.start }}{% if project.date.end is defined %}{{ '–' ~ project.date.end }}{% endif %}</span>
-        <span>{{ project.license|join(' + ') }}</span>
+        <!-- <span>{{ project.license|join(' + ') }}</span> -->
     {%- if project.website is defined %}
         <a {% if not project.website.active %}class="deactivate" {% endif %}href="{{ project.website.url }}">{{ project.website.name }}</a>
     {%- else %}

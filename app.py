@@ -31,7 +31,7 @@ def getTemplates():
             return True
 
     templateLoader = jinja2.FileSystemLoader(searchpath='templates/')
-    templateEnv = jinja2.Environment(loader=templateLoader, extensions=['jinja2.ext.i18n'])
+    templateEnv = jinja2.Environment(loader=templateLoader)
     # add markdown filter
     templateEnv.filters['markdown'] = markdown
     templateEnv.filters['markdownrp'] = markdownrp

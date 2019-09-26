@@ -122,10 +122,10 @@ nav.selector {
             width: 15%;
         }
         :nth-child(1) {
-            width: 40%;
+            width: 50%;
         }
-        :nth-child(4) {
-            width: 30%;
+        :nth-child(3) {
+            width: 35%;
             text-align: right;
         }
         &.hide {
@@ -140,12 +140,6 @@ nav.selector {
         &:visited {
             color: $blue;
         }
-        &.deactivate {
-            color: $red;
-            text-decoration: line-through;
-            &:visited, &:focus, &:link {
-                color: $red;
-            }
-        }
+        
     }
 }

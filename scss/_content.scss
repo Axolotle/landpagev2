@@ -204,6 +204,9 @@ code {
             border-right : $row-height solid transparent;
             border-bottom : $row-height solid $main-color;
         }
+        @media (max-width: 600px) {
+            width: calc(100% - #{$row-height});
+        }
     }
 
     h1 {

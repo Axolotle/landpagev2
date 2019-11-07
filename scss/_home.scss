@@ -88,6 +88,26 @@ nav.selector {
             transform: rotate(-45deg);
         }
     }
+    @media (max-width: 650px) {
+        ul {
+            height: 3rem;
+            & > span:first-of-type li {
+                padding-left: 0rem;
+            }
+        }
+
+        li {
+            border-right: 2px solid $main-color;
+        }
+        .triangle {
+            display: none;
+        }
+        span.selected li {
+            &::before, &::after {
+                content: none;
+            }
+        }
+    }
 }
 
 .synopsis {
@@ -118,6 +138,9 @@ nav.selector {
         border: 2px solid $main-color;
         margin-top: -2px;
         padding: 0 2rem;
+
+
+
         & > * {
             width: 15%;
         }
@@ -127,10 +150,23 @@ nav.selector {
         :nth-child(3) {
             width: 35%;
             text-align: right;
+            @media (max-width: 650px) {
+                display: none;
+            }
         }
         &.hide {
             display: none;
         }
+
+        @media (max-width: 650px) {
+            height: auto;
+            padding: 1rem;
+
+            :nth-child(2) {
+                width: 30%;
+            }
+        }
+
     }
 
     a {
@@ -140,6 +176,6 @@ nav.selector {
         &:visited {
             color: $blue;
         }
-        
+
     }
 }

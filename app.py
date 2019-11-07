@@ -85,7 +85,8 @@ def getPages(config):
                 if common is not None:
                     page['data'] = {**common, **data}
                 [page['data']['template'], page['data']['lang'], _] = file.split('.')
-                page['data']['uri'] = root + '/'
+                page['data']['uri'] = root.replace('landpage/', '') + '/'
+                page['data']['location'] = root + '/'
                 page['data']['slug'] = os.path.basename(root)
                 if page['data']['template'] == 'home':
                     pages[page['data']['lang']]['home'] = page
@@ -114,12 +115,12 @@ def generate(onlyHome, slug):
                 projects.append(data)
             if not data['visible'] or onlyHome or (slug is not None and slug != data['slug']):
                 continue
-            print('Rendering {}…'.format(os.path.join(data['uri'], lang)))
+            print('Rendering {}…'.format(os.path.join(data['location'], lang)))
             templates[data['template']].stream(
                 site=site,
                 page=page,
                 trad=trad[lang],
-            ).dump('{}/{}/index.html'.format(data['uri'], data['lang']))
+            ).dump('{}/{}/index.html'.format(data['location'], data['lang']))
 
         print('Rendering {}…'.format(os.path.join(site['pages'], lang)))
         templates['home'].stream(
@@ -127,7 +128,7 @@ def generate(onlyHome, slug):
             page=content['home'],
             projects=reorder(projects, site['order']),
             trad=trad[lang],
-        ).dump('{}{}/index.html'.format(content['home']['data']['uri'], lang))
+        ).dump('{}{}/index.html'.format(content['home']['data']['location'], lang))
 
 
 if __name__ == '__main__':

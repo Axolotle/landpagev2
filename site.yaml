@@ -5,6 +5,7 @@ langs:
 - fr
 - en
 order:
+- oc
 - pf
 - luvanwebsite
 - rnsite
@@ -19,8 +20,7 @@ order:
 - 1000j
 - ateliers
 - pxph
-- oc
 - sae
 pages: landpage
-root: /landpage/
+root: /
 title: Nicolas Chesnais

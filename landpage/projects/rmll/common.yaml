@@ -1,0 +1,29 @@
+visible: true
+date:
+    start: 2017
+    end: 2018
+license:
+    - EUPL
+website:
+    name: 2018.rmll.info
+    url: https://2018.rmll.info
+    active: true
+keywords:
+    - research
+    - commissioned
+collaboration:
+    - name: Marjorie Ober
+      url: https://marjorieober.com
+sources:
+    - name: Appel à participation
+      url: https://github.com/hackstub/rmll18-osem
+    - name: Site de l'événement
+      url : https://github.com/hackstub/rmll18-cfp
+softwares: "[Inkscape](https://inkscape.org/), [Scribus](https://www.scribus.net/) & [OSEM](https://osem.io/)"
+font: "[*Open Sans*](http://www.opensans.com/) & [*Space Mono*](https://www.colophon-foundry.org/custom/spacemono/)"
+colors:
+    - "000000"
+    - ffffff
+    - 8400ff
+    - b6ffaa
+    - ffffaa

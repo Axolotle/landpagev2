@@ -1,0 +1,13 @@
+visible: true
+date:
+    start: 2019
+    end: ??
+license:
+    - GPL
+    - LAL
+website:
+    url: 'https://autre.space/objetscelestes'
+    name: '~/objetscelestes'
+    active: true
+keywords:
+    - research

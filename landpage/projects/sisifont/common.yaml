@@ -1,0 +1,17 @@
+title: Sisifont
+visible: true
+date:
+    start: 2016
+    end: 2018
+license:
+    - SIL
+website:
+    name: '~/sisifont/'
+    url: 'https://autre.space/sisifont/'
+    active: true
+keywords:
+    - research
+    - tool
+sources:
+    - name: github.com/Axolotle/sisifont
+      url: https://github.com/Axolotle/sisifont

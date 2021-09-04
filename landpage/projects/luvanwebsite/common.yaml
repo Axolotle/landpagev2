@@ -1,0 +1,16 @@
+title: luvan website
+visible: false
+date:
+    start: 2019
+license:
+    - GPL
+website:
+    name: luvan.org/
+    url: https://www.luvan.org/
+    active: true
+keywords:
+    - commissioned
+sources:
+    - name: github.com/Axolotle/luvan-theme
+      url: https://github.com/Axolotle/luvan-theme
+soft: Grav

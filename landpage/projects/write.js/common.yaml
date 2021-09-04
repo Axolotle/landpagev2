@@ -1,0 +1,13 @@
+title: write.js
+visible: True
+date:
+    start: 2016
+    end: 2018
+license:
+    - GPL
+keywords:
+    - research
+    - tool
+sources:
+    - name: github.com/Axolotle/write.js
+      url: https://github.com/Axolotle/write.js

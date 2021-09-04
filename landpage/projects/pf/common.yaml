@@ -1,0 +1,21 @@
+visible: true
+date:
+    start: 2019
+license:
+    - GPL
+    - LAL
+website:
+    name: ~/planetaryformats/
+    url: https://autre.space/planetaryformats
+    active: true
+keywords:
+    - research
+    - tool
+sources:
+    - name: github.com/Axolotle/formats
+      url: https://github.com/Axolotle/formats
+colors:
+    - '000000'
+    - ffffff
+    - 00fb7f
+soft: Python, Inkscape & Javascript

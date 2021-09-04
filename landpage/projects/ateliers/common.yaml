@@ -1,0 +1,20 @@
+title: Ateliers n×10⁹
+visible: true
+date:
+    start: 2014
+    end: 2017
+license:
+    - GPL
+website:
+    name: github.com/n-milliards
+    url: https://github.com/n-milliards
+    active: true
+keywords:
+    - commissioned
+    - tool
+collaboration:
+    - name: Alexandre Aubin
+      url: https://github.com/alexAubin
+sources:
+    - name: github.com/n-milliards
+      url: https://github.com/n-milliards

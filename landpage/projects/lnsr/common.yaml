@@ -1,0 +1,20 @@
+title: Light-nanosecond_ruler
+visible: true
+date:
+    start: 2014
+    end: ??
+license:
+    - GPL
+    - LAL
+website:
+    name: ~/lnsr/
+    url: https://autre.space/lnsr
+    active: false
+sources:
+    - name: github.com/Axolotle/lnsr
+      url: https://github.com/Axolotle/lnsr
+keywords:
+    - research
+softwares: Flask, Blender, Three.js, Inkscape & GIMP
+font: '*pxph9*'
+colors: nb

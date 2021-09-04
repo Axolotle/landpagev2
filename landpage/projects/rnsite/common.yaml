@@ -1,0 +1,15 @@
+title: Les Règles de la Nuit website
+visible: false
+date:
+    start: 2019
+license:
+    - GPL
+website:
+    name: lesreglesdelanuit.net/
+    url: https://lesreglesdelanuit.net/site/
+    active: true
+keywords:
+    - commissioned
+sources:
+    - name: github.com/Axolotle/night-rules-theme
+      url: https://github.com/Axolotle/night-rules-theme

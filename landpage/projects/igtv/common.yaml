@@ -1,0 +1,22 @@
+visible: true
+date:
+    start: 2014
+    end: ??
+license:
+    - GPL
+    - LAL
+website:
+    name: ~/igtv/
+    url: https://autre.space/igtv
+    active: false
+keywords:
+    - research
+    - tool
+collaboration:
+    - name: Alexandre Aubin
+      url: https://github.com/alexAubin
+sources:
+    - name: github.com/hackstub/instrumentGeoTempsVariant
+      url: https://github.com/hackstub/instrumentGeoTempsVariant
+soft: Arduino & Inkscape.
+colors: nb

@@ -1,0 +1,19 @@
+visible: true
+date:
+    start: 2014
+    end: 2018
+license:
+    - LAL
+website:
+    name: hackstub.netlib.re/
+    url: https://hackstub.netlib.re/landpage/
+    active: true
+keywords:
+    - commissioned
+sources:
+    - name: Logos
+      url: https://github.com/hackstub/identityAndPaperwork/tree/master/logo-hackstub
+    - name: Avenir(s) d'Internet
+      url: https://github.com/hackstub/avenirsdinternet
+colors: nb
+softwares: "[Inkscape](https://inkscape.org/)"

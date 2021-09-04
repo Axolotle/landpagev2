@@ -66,7 +66,7 @@ def readPage(root, fn):
             if _type == 'box':
                 page['boxes'].append(markdown(content))
             elif content != '':
-                page['content' if _type is '' else _type] = markdown(content)
+                page['content' if _type == '' else _type] = markdown(content)
     return page
 
 def getPages(config):

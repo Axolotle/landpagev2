@@ -32,7 +32,7 @@ menuToAdd:
       symbol: →
 ---
 ---footer
-Copyright © autre.space 2011-2016, Nicolas CHESNAIS. *contact [chez] autre [point] space*  
+Copyright © autre.space 2011-2023, Nicolas CHESNAIS. *contact [chez] autre [point] space*  
 Les textes contenus sur ce site sont diffusés selon les termes de la [Licence Creative Commons Attribution - CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/).  
 Sauf mention explicite, les images présentes sur ce site sont distribuées selon les termes de la [Licence Art Libre 1.3](http://www.artlibre.org/).  
 Les licences attribuées aux différents projets sont indiquées dans leur descriptif.

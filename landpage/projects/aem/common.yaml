@@ -1,0 +1,27 @@
+title: AEM
+visible: true
+date:
+    start: 2021
+license:
+    - GPL
+website:
+    name: aem.autre.space
+    url: https://aem.autre.space/
+    active: true
+keywords:
+    - commissioned
+    - research
+collaboration:
+    - name: Maë
+    - name: Basile Touratier
+    - name: Léo Henry
+      url: http://leo-henry.com/
+sources:
+    - name: aem
+      url: https://github.com/Axolotle/EAM
+softwares: "[Flask](https://flask.palletsprojects.com/), [Vue.js](https://vuejs.org/)"
+font: "[*Fira Code*](https://github.com/tonsky/FiraCode/)"
+colors:
+  - '000000'
+  - ffffff
+  - e01b24

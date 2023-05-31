@@ -5,6 +5,7 @@ langs:
 - fr
 - en
 order:
+- aem
 - oc
 - pf
 - luvanwebsite

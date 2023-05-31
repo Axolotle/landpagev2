@@ -1,0 +1,22 @@
+title: Danser Avec le Climat
+visible: true
+date:
+    start: 2022
+    end: ??
+license:
+    - GPL
+website:
+    name: autre.space/dac
+    url: https://autre.space/dac
+    active: true
+keywords:
+    - research
+    - tool
+collaboration:
+    - name: Louise Bentkowski
+      url:
+    - name: Délia Krayenbühl
+      url:
+    - name: Jeanne Kleinman
+      url:
+softwares: "[Arduino](https://arduino.cc/)"

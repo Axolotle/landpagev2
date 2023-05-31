@@ -1,0 +1,21 @@
+title: Périple 2021
+visible: true
+date:
+    start: 2020
+    end: 2021
+website:
+    name: periple2021.com
+    url: https://periple2021.com
+    active: true
+keywords:
+    - commissioned
+collaboration:
+    - name: Marjorie Ober
+      url: https://marjorieober.com
+softwares: "[Flask](https://flask.palletsprojects.com/), [Leaflet](https://leafletjs.com/), [OSM](https://www.openstreetmap.org/#map=6/48.078/8.987)"
+font: "[*Fivo Sans Modern*](https://usemodify.com/fonts/fivo-sans-modern/) & [Inria Serif](https://github.com/BlackFoundryCom/InriaFonts)"
+colors:
+  - '000000'
+  - 'e7e7e7'
+  - ffffff
+  - ff0000

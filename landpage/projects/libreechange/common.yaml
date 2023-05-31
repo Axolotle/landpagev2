@@ -1,0 +1,14 @@
+visible: true
+date:
+    start: 2020
+keywords:
+    - commissioned
+collaboration:
+    - name: Marjorie Ober
+      url: https://marjorieober.com
+softwares: "[Inkscape](https://inkscape.org/), [Scribus](https://www.scribus.net/)"
+font: "[*Lack*](https://velvetyne.fr/fonts/lack/)"
+colors:
+  - '000000'
+  - ffffff
+  - ff0000

@@ -1,0 +1,17 @@
+visible: true
+date:
+    start: 2020
+    end: ??
+license:
+    - AGPL-3.0
+website:
+    name: yunohost.org
+    url: https://yunohost.org/#/index_fr
+    active: true
+keywords:
+    - tool
+sources:
+    - name: YunoHost
+      url: https://github.com/YunoHost/
+softwares: "[Vue.js](https://vuejs.org/), [BootstrapVue](https://bootstrap-vue.org/)"
+font: "[FiraGO](https://bboxtype.com/typefaces/FiraGO/#!layout=specimen), [Fira Code](https://github.com/tonsky/FiraCode)"

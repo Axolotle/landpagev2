@@ -1,0 +1,33 @@
+title: En françaiS au pluriel
+visible: true
+date:
+    start: 2022
+license:
+    - GPL
+website:
+    name: enfrancaisaupluriel.fr
+    url: https://www.enfrancaisaupluriel.fr/
+    active: true
+keywords:
+    - commissioned
+collaboration:
+    - name: Marjorie Ober
+      url: https://marjorieober.com
+    - name: Bachir Soussi-Chiadmi
+      url: http://bachirsoussichiadmi.net/
+sources:
+    - name: backend
+      url: https://figureslibres.io/gogs/bachir/D9-enfrancais
+    - name: frontend
+      url: https://figureslibres.io/gogs/bachir/enfrancais-app
+softwares: "[Vue.js](https://vuejs.org/), [D3.js](https://d3js.org/), [Bootstrap-vue](https://bootstrap-vue.org/)"
+font: "[*NotoSans*](https://github.com/googlefonts/noto-fonts), [Redaction](https://www.redaction.us/)"
+colors:
+  - '020202'
+  - ffffff
+  - bd9e77
+  - ff775f
+  - ffba7d
+  - db7dff
+  - 9191ff
+  - 98ff98
